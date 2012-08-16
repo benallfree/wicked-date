@@ -1,7 +1,7 @@
 <?
 
 
-class CollectionsMixin extends Mixin
+class DateMixin extends Mixin
 {
   static $__prefix = '';
   
@@ -92,8 +92,7 @@ class CollectionsMixin extends Mixin
   static function date_format($timestamp, $include_time=false)
   {
     if (!$timestamp) return null;
-    global $__wicked;
-    $config = $__wicked['modules']['date'];
+    $config = W::module('date');
     $s = $config['date_format'];
     if($include_time) $s .= " @ {$config['time_format']}";
     return date($s, $timestamp);
@@ -102,8 +101,7 @@ class CollectionsMixin extends Mixin
   static function time_format($timestamp, $include_date = false)
   {
     if (!$timestamp) return null;
-    global $__wicked;
-    $config = $__wicked['modules']['date'];
+    $config = W::module('date');
     $s = $config['time_format'];
     if($include_date) $s = "{$config['date_format']} @ " . $s;
     return date($s, $timestamp);

@@ -4,7 +4,6 @@
 class DateMixin extends Mixin
 {
   static $__prefix = '';
-  
 
   static function date_at_timezone($format, $locale, $timestamp=null){
      
